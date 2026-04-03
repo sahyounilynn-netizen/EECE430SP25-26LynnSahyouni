@@ -31,3 +31,20 @@ This project is a Django-based web application for managing volleyball players. 
 
 ```bash
 pip install -r requirements.txt
+## Run With Docker
+
+### Build the Docker Image
+docker build -t volleyball-app .
+
+### Run the Container
+docker run -p 8000:8000 volleyball-app
+
+Then open:
+http://127.0.0.1:8000/
+
+
+## Run Docker Image From GitHub
+
+docker pull ghcr.io/sahyouinlynn-netizen/volleyball:latest
+
+docker run -p 8000:8000 ghcr.io/sahyouinlynn-netizen/volleyball:latest
