@@ -1,29 +1,33 @@
 # Volleyball Player Management System
 
-This is a Django web application for managing volleyball players.
+This project is a Django-based web application for managing volleyball players. It allows users to add, view, update, search, and delete player records through a simple interface.
 
 ## Features
+
 - Add new players
-- View list of players
+- View the player list
+- Search players by name
 - Update player information
-- Delete players
+- Delete player records
 
 ## Technologies Used
+
 - Python
 - Django
 - SQLite
 - Docker
 
-## How to Run
+## Project Structure
+
+- `players/` → app files, templates, views, models, and URLs
+- `volleyhub/` → project settings and main configuration
+- `Dockerfile` → Docker image instructions
+- `requirements.txt` → project dependencies
+- `manage.py` → Django management file
+
+## Run Locally Without Docker
 
 1. Install dependencies:
-   pip install -r requirements.txt
 
-2. Run migrations:
-   python manage.py migrate
-
-3. Start the server:
-   python manage.py runserver
-
-4. Open in browser:
-   http://127.0.0.1:8000/
+```bash
+pip install -r requirements.txt
