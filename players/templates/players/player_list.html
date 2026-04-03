@@ -1,0 +1,54 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+<div class="top-row">
+    <div>
+        <h2 class="section-title">Player Directory</h2>
+        <div class="section-subtitle">Elite Club Roster</div>
+    </div>
+    <a href="{% url 'add_player' %}" class="btn btn-primary">+ Add Player</a>
+</div>
+
+<form method="get" class="search-form">
+    <input type="text" name="q" placeholder="Search players by name..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date Joined</th>
+            <th>Position</th>
+            <th>Salary / Payment</th>
+            <th>Contact Person</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for player in players %}
+        <tr>
+            <td>{{ player.id }}</td>
+            <td><strong>{{ player.name }}</strong></td>
+            <td>{{ player.date_joined }}</td>
+            <td>{{ player.position }}</td>
+            <td>{{ player.salary_payment }}</td>
+            <td>{{ player.contact_person }}</td>
+            <td>
+                <div class="actions-inline">
+                    <a href="{% url 'edit_player' player.id %}" class="btn btn-edit">Edit</a>
+                    <a href="{% url 'delete_player' player.id %}" class="btn btn-delete">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" class="empty-message">No players found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="footer-note">VolleyHub roster overview</div>
+{% endblock %}

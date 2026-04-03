@@ -1,0 +1,20 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+<div class="top-row">
+    <div>
+        <h2 class="section-title">Delete Player</h2>
+        <div class="section-subtitle">Confirm before removing this athlete record.</div>
+    </div>
+</div>
+
+<div class="confirm-box">
+    <p>Are you sure you want to delete <strong>{{ player.name }}</strong> from the roster?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-delete">Yes, Delete</button>
+        <a href="{% url 'player_list' %}" class="btn btn-cancel">Cancel</a>
+    </form>
+</div>
+{% endblock %}
